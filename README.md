@@ -1,46 +1,68 @@
-# B2 Assessments
+— 
+title: Ticket, Please
+layout: page
+—
 
-Base repository for B2 assessments and diagnostics.
+Read user stories very carefully.
 
-This repository requires and has been tested on Ruby v2.5.3 and is based on Rails 5.2.4.3.
+Fork and clone repo. 
 
-RSpec and Shoulda-Matchers have been installed and set up.
+When time is up, submit pull request.
 
-## Setup
+## Overview
 
-1. fork this repo
-2. clone your fork
-3. `git clone <paste_repo>`
-4. `cd b2-mid-mod`
-5. `bundle install`
+We are creating an application to track departments, employees and tickets.
 
-When you run `bundle exec rspec` you should have 0 tests.
+* Departments have a name and a floor.
+	* ex. name: ‘IT’, floor: ‘Basement’
+* Employees have a name, and level
+	* ex. name: ‘Christina Aguilera’, level: 2
+* Tickets have a subject and an age
+	* ex. subject: ‘printers broken’, age: 5
 
-## Instructions
+* Departments have many Employees
+* Employees belong to a Department
+* Employees have many Tickets
+* Tickets can belong to many Employees
 
-* Work on this assessment independently. DO NOT discuss with anyone.
-* You are allowed to use any references including notes, Google, lesson plans, etc.
-* Read each story carefully before you start working.
-* Commit Frequently, about every 15 - 30 minutes
-* Push your code to your fork once the time is up (not before!)
+You will need to create all the migrations
 
-## Submission
+Story 1
+Department Index
 
-Once the time for the assessment is up, push your code to your fork and create a pull request to the `turingschool-examples` repository. Include the following:
+As a user,
+When I visit the Department index page,
+I see each department's name and floor
+And underneath each department, I can see the names of all of its employees
 
-* Your Name
-* A reflection on how you felt you did with this challenge and what story you got through
+Story 2
+Employee Show
 
-## Requirements
+As a user,
+When I visit the Employee show page,
+I see the employee's name, department
+and a list of all of their tickets from oldest to youngest.
+I also see the oldest ticket assigned to the employee listed separately
 
-* TDD all new work
-* model methods and relationships must be fully tested.
 
-## Not Required
+Story 3
 
-* No visual styling is required or expected
-* You do not need to test for or create any model validations.
+As a user,
+When I visit the employee show page,
+I do not see any tickets listed that are not assigned to the employee
+and I see a form to add a ticket to this movie
+When I fill in the form with the id of a ticket that already exists in the database
+and I click submit
+Then I am redirected back to that employees show page
+and i see the ticket's subject now listed
+(you do not have to test for sad path, for example if the id does not match an existing ticket
 
-## User Stories
+## Extension
 
-User stories will be released at the start of the assessment.
+Extension
+Best Friends
+
+As a user,
+When I visit an employee's show page
+I see that employees name and level
+and I see a unique list of all the other employees that this employee shares tickets with
