@@ -3,7 +3,13 @@
 
 Read user stories very carefully.
 
-Fork and clone repo. 
+Fork and clone repo. Run the setup tasks: 
+```bash
+bundle install
+rails db:{drop,create,migrate,seed}
+```
+
+When you first run `bundle exec rspec`, you should have 2 passing tests. 
 
 When time is up, submit pull request.
 
@@ -25,9 +31,9 @@ We are creating an application to track departments, employees and tickets.
 
 ## Instructions
 
-- You will need to create all the migrations. 
+- You will need to create any missing migrations. 
 - You do not need to test for validations, but you can if you want to practice. 
-- Test coverage should be > 98% for features, and 100% for models. 
+- Your test coverage should be > 98% for features, and 100% for models. 
 - Time-box yourself to 3 hours maximum.
 - Complete the relationships described *first*, then move onto the user stories below. 
 
@@ -49,9 +55,9 @@ Employee Show
 ```
 As a user,
 When I visit the Employee show page,
-I see the employee's name, department
-and a list of all of their tickets from oldest to youngest.
-I also see the oldest ticket assigned to the employee listed separately
+I see the employee's name, their department,
+and a list of all of their tickets from oldest to newest.
+I also see the oldest ticket assigned to the employee listed separately.
 ```
 
 ### Story 3
@@ -60,7 +66,7 @@ I also see the oldest ticket assigned to the employee listed separately
 As a user,
 When I visit the employee show page,
 I do not see any tickets listed that are not assigned to the employee
-and I see a form to add a ticket to this department.
+and I see a form to add a ticket to this employee.
 When I fill in the form with the id of a ticket that already exists in the database
 and I click submit
 Then I am redirected back to that employees show page
