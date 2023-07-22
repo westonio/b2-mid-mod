@@ -11,3 +11,12 @@
 <% @employee.tickets_by_oldest.each do |ticket| %>
   <p><%= ticket.subject %> | Age: <%= ticket.age %></p>
 <% end %>
+
+<%= form_with url: "/employee_tickets", id: "add_ticket", method: :post, local: true do |form| %>
+  <h2>Add Existing Ticket to Employee</h2>
+  <%= form.label :ticket_id, "Ticket ID:" %>
+  <%= form.number_field :ticket_id %>
+  <%= form.hidden_field :employee_id, value: @employee.id %>
+
+  <%= form.submit "Submit" %>
+<% end %>
